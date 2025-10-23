@@ -119,6 +119,46 @@ std::string Emp::getBranchesToString(Emp::Branches valParam)
     return sRet;
 }
 
+std::string Emp::getGenderToString(Emp::Gender valParam)
+{
+    std::string sRet;
+    switch (valParam)
+    {
+    case Emp::Gender::MALE:
+        sRet = "Male";
+        break;
+    case Emp::Gender::FEMALE:
+        sRet = "Female";
+        break;
+    default:
+        sRet = "Invalid";
+        break;
+    }
+    return sRet;
+
+}
+
+std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam)
+{
+    std::string sRet;
+    switch (valParam)
+    {
+    case Emp::ExternalAgencies::AVENGERS:
+        sRet = "AVENGERS";
+        break;
+    case Emp::ExternalAgencies::JUSTICELEAGUE:
+        sRet = "JUSTICELEAGUE";
+        break;
+    case Emp::ExternalAgencies::XMEN:
+        sRet = "XMEN";
+        break;
+    default:
+        sRet = "Invalid";
+        break;
+    }
+    return sRet;
+
+}
 
 Menu::MainMenu Menu::MainMenuOptions()
 {

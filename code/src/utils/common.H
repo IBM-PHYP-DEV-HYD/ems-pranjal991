@@ -6,7 +6,8 @@
 #include <iostream>
 
 #define ENTRY(employeename,id,type,status,gender,dob,doj) \
-   {std::cout<<" | "<<employeename<<"    " \
+   { \
+    std::cout<<" | "<<employeename<<"    " \
                                 "| "<<id<<"     " \
                                 "| "<<type<<"      " \
                                 "| "<<status<<"     " \
@@ -14,8 +15,7 @@
                                 "| "<<dob<<"        " \
                                 "| "<<doj<<"        |" <<std::endl;}
 
-
-#define FULLTIME_EMP_DETAILS(empname, id, type, status, gender, dob, doj, to_leave, leave_left) \
+#define COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
 { \
     std::cout << "Employee Name:     " << empname << std::endl; \
     std::cout << "Employee Id:       " << id << std::endl; \
@@ -24,9 +24,29 @@
     std::cout << "Gender:            " << gender << std::endl; \
     std::cout << "Date of Birth:     " << dob << std::endl; \
     std::cout << "Date of Joining:   " << doj << std::endl; \
+}
+
+#define FULLTIME_EMP_DETAILS(empname, id, type, status, gender, dob, doj,to_leave, leave_left) \
+{ \
+    COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
     std::cout << "Leaves Awailed:    " << static_cast<int>(to_leave) << std::endl; \
     std::cout << "Leaves Left:       " << static_cast<int>(leave_left) << std::endl; \
 }
+
+#define CONTRACTOR_DETAILS(empname, id, type, status, gender, dob, doj,externalAgency) \
+{ \
+    COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
+    std::cout << "External Agency:    " << externalAgency << std::endl; \
+}
+
+#define INTERN_DETAILS(empname, id, type, status, gender, dob, doj,college,branch) \
+{ \
+    COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
+    std::cout << "Collage:  " << college << std::endl; \
+    std::cout << "Branch:   " << branch << std::endl; \
+}
+
+
 
 namespace Generic
 {
@@ -41,7 +61,7 @@ namespace Generic
         BACKDIRECTION = -1
     };
 
-    /// @brief Generic Input Function for all data types
+/// @brief Generic Input Function for all data types
 /// @tparam T 
 /// @return user input
 template <typename T> 
@@ -67,10 +87,12 @@ T getInputValues()
 
     return sInput;
 }
+
 }
 
 namespace Emp
 {
+    constexpr int Leaves  = 5;
     enum class EmpType
     {
         FULLTIME,
@@ -114,6 +136,13 @@ namespace Emp
         ENDMARKER
     };
 
+    enum class Gender
+    {
+        MALE,
+        FEMALE,
+        ENDMARKER
+    };
+
     static std::string ExternalAgenciesArray[3] = {"Avengers","Justice League","X-Men"};
 
     struct DateStruct
@@ -128,7 +157,7 @@ namespace Emp
     // static std::string Colleges[] = {"IIT Delhi","IIT Mumbai","IIT Kanpur","IIT Hyderabad","NIT Wrangal","NIT Tiruchi"};
     // static std::string Branches[] = {"CSE","CSIT","ECE"};
     static std::string names[10] = {"Mohan","Reena","Gauri","Saket","Sangeeta","Zoravar","Anirudh","Reddy","Tom","Jerry"};
-    static std::string gender[2] = {"Male","Female"};
+    // static std::string gender[2] = {"Male","Female"};
     // static std::string status[3] = {"Active","Inactive",""}
     static DateStruct Dates[10] = {
         {},
@@ -165,6 +194,9 @@ namespace Emp
     std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam);
     std::string getCollegesToString(Emp::Colleges valParam);
     std::string getBranchesToString(Emp::Branches valParam);
+    std::string getGenderToString(Emp::Gender valParam);
+    std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam);
+    
 }
 
 namespace Menu

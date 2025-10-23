@@ -2,7 +2,7 @@
 #define EMPLOYEE_MANAGER
 
 #include "employee/employeeInterface.H"
-#include "builder/employeeBuilderInterface.H"
+#include "builder/employeeBuilder.H"
 #include "utils/Edll.H"
 
 class XyzEmployeeManager
@@ -19,8 +19,29 @@ class XyzEmployeeManager
     bool addEmployee(Emp::EmpType typeParam);
     Emp::EmpType generateEmployeeType();
     void displayAllEmployeeDeatails();
-    void displayEmployeeDetails(std::string& idParam);
-    
+    bool addLeavesToFulltimeEmployee(int valParam);
+    Edll<XyzEmployeeInterface*>& getActiveEmployeeQueue();
+    template<typename T>
+    void printEmployee(T valParam,T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
+    {
+        searchAndPrint(mActiveEmployeeQueue, valParam ,getter,printfunc);
+        searchAndPrint(mInActiveEmployeeQueue, valParam ,getter,printfunc);
+        searchAndPrint(mResignedEmployeeQueue, valParam ,getter,printfunc);
+    }
+    template<typename T>
+    XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,T reqParam,T (XyzEmployeeInterface::*getter)())
+    {
+        uint64_t sItr = 1;
+        for(sItr = 1;sItr <= queueParam.size();sItr++)
+        {
+            if(reqParam == (queueParam[sItr]->*getter)())
+            {
+                return queueParam[sItr];
+            }
+        }
+
+
+    }
 
     private:
 
@@ -28,11 +49,22 @@ class XyzEmployeeManager
     Edll<XyzEmployeeInterface*> mInActiveEmployeeQueue;
     Edll<XyzEmployeeInterface*> mResignedEmployeeQueue;
 
-    XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,std::string& idParam) ;
-    
-    
+    // XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,std::string& idParam) ;
 
-
+    template <typename T>
+    void searchAndPrint(Edll<XyzEmployeeInterface *> &queueParam, T reqParam, T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
+    {
+        uint64_t sItr = 1;
+        XyzEmployeeInterface *sTemp = nullptr;
+        for (sItr = 1; sItr <= queueParam.size(); sItr++)
+        {
+            if ((queueParam[sItr]->*getter)() == reqParam)
+            {                
+                (queueParam[sItr]->*printfunc)(); 
+            }
+        }
+     
+    }
 };
 
 

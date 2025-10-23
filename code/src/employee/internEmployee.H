@@ -18,6 +18,8 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
     ~XyzInternEmployee() = default;
 
     void printDetails() override;
+    void printEmployeeDetails() override;
+    Emp::EmpType getType() override;
 
     bool setDateOfLeaving(std::string valParam);
     std::string getDateOfLeaving();
@@ -26,6 +28,7 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
     bool setBranchName(Emp::Branches valParam);
     std::string getBranchName();
     int getId();
+
 
 
     private:

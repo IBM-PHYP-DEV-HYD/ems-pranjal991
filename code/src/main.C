@@ -2,39 +2,12 @@
 #define MAIN
 
 
-
-// #include "utils/Edll.H"
-// #include "employee/employeeInterface.H"
-// #include "builder/employeeBuilderInterface.H"
-
 #include "employeeManager.H"
 #include "processMenus.H"
 
 
 int main()
 {
-    // Edll<int> queue_;
-    // queue_.pushBack(34);
-    // queue_.pushBack(35);
-    // queue_.pushBack(36);
-    // queue_.pushBack(37);
-    // queue_.pushBack(38);
-    // queue_.print();
-    // queue_.insertAtIndex(65,3);
-    // queue_.print();
-    // queue_.removeFromIndex(3);
-    // queue_.print();
-
-    // XyzEmployeeInterface *emp;
-    // EmployeeBuilderInterface *builder = new EmployeeBuilderInterface();
-    // emp = builder->createEmployee(Emp::EmpType::FULLTIME);
-    // emp = builder->build();
-
-
-    // XyzEmployeeManager* manager = new XyzEmployeeM anager();
-    // Emp::EmpType sType = manager->generateEmployeeType();
-    // manager->addEmployee(sType);
-
     ProcessMenu sPmen;
     while (true)
     {
@@ -56,7 +29,7 @@ int main()
             break;
         }
         case Menu::MainMenu::OTHERS:
-            /* code */
+            sPmen.ProcessSubmenu3();
             break;
         case Menu::MainMenu::EXIT:
             exit(1);

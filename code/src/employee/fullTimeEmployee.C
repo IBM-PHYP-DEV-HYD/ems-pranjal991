@@ -8,7 +8,8 @@ int XyzFulltimeEmployee::mFid = 0;
 void XyzFulltimeEmployee::printDetails()
 {
     
-    ENTRY(getEmployeeName(),getEmployeeID(),getEmployeeType(),getEmployeeStatus(),getEmployeeGender(),getEmployeeDOB(),getDateOfJoining());
+    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),getDateOfJoining());
 
 }
 
@@ -17,9 +18,9 @@ void XyzFulltimeEmployee::printEmployeeDetails()
     FULLTIME_EMP_DETAILS( \
     getEmployeeName(), \
     getEmployeeID(), \
-    getEmployeeType(), \
-    getEmployeeStatus(), \
-    getEmployeeGender(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
     getEmployeeDOB(), \
     getDateOfJoining(), \
     getLeavesAwailed(), \
@@ -27,6 +28,11 @@ void XyzFulltimeEmployee::printEmployeeDetails()
 
   
 }
+
+Emp::EmpType XyzFulltimeEmployee::getType()
+ {
+    return Emp::EmpType::FULLTIME;
+ }
 
 int XyzFulltimeEmployee::getId()
 {
@@ -66,6 +72,13 @@ uint8_t XyzFulltimeEmployee::getLeavesLeft()
 bool XyzFulltimeEmployee::setLeavesLeft(uint8_t valParm)
 {
     return true;
+}
+
+void XyzFulltimeEmployee::addLeaves(uint8_t valParm)
+{
+    mTotalLeaves = mTotalLeaves+ static_cast<int>(valParm);
+    mLeavesRemaining = mTotalLeaves - mLeavesAwailed;
+
 }
 
 

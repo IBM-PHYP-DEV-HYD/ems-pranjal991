@@ -6,7 +6,7 @@
 class XyzContractorEmployee: public XyzEmployeeInterfaceBase
 {
     public:
-    XyzContractorEmployee():mExternalAgency("NULL"),mDateOfLeaving("NULL"){mCid++;};
+    XyzContractorEmployee():mExternalAgency(Emp::ExternalAgencies::ENDMARKER),mDateOfLeaving("NULL"){mCid++;};
 
     XyzContractorEmployee(const XyzContractorEmployee &object) = delete;
     XyzContractorEmployee(const XyzContractorEmployee &&object)= delete;
@@ -16,16 +16,18 @@ class XyzContractorEmployee: public XyzEmployeeInterfaceBase
     ~XyzContractorEmployee() = default;
 
     void printDetails() override;
+    void printEmployeeDetails() override;
+    Emp::EmpType getType() override;
 
     bool setDateOfLeaving(std::string valParm);
     std::string getDateOfLeaving();
-    void setExternalAgency(std::string valParm);
-    std::string getExternalAgency();
+    void setExternalAgency(Emp::ExternalAgencies valParm);
+    Emp::ExternalAgencies getExternalAgency();
     int getId();
 
     private:
 
-    std::string mExternalAgency;
+    Emp::ExternalAgencies mExternalAgency;
     std::string mDateOfLeaving;
     static int mCid;    
 

@@ -16,7 +16,7 @@ class EmployeeDatabase
     std::string mEmployeeId;
     Emp::EmpType mEmployeeType;
     Emp::EmpStatus mEmployeeStatus;
-    std::string mGender;
+    Emp::Gender mGender;
     std::string mDateOfBirth;
     std::string mDateOfJoining;
 
@@ -26,7 +26,7 @@ class EmployeeDatabase
             mEmployeeId("NA"),
             mEmployeeType(Emp::EmpType::ENDMARKER),
             mEmployeeStatus(Emp::EmpStatus::ENDMARKER),
-            mGender("NA"),
+            mGender(Emp::Gender::ENDMARKER),
             mDateOfBirth("NA"),
             mDateOfJoining("NA"){}
 

@@ -24,7 +24,7 @@ std::string XyzEmployeeInterfaceBase:: getEmployeeID()
     return getEmpDatabaseInstance().mEmployeeId;
 }
 
-std::string XyzEmployeeInterfaceBase:: getEmployeeGender()
+Emp::Gender XyzEmployeeInterfaceBase:: getEmployeeGender()
 {
     return getEmpDatabaseInstance().mGender;
 }
@@ -34,14 +34,14 @@ std::string XyzEmployeeInterfaceBase:: getEmployeeDOB()
     return getEmpDatabaseInstance().mDateOfBirth;
 }
 
-std::string XyzEmployeeInterfaceBase::getEmployeeStatus()
+Emp::EmpStatus XyzEmployeeInterfaceBase::getEmployeeStatus()
 {
-    return Emp::getEmpStatusToString(getEmpDatabaseInstance().mEmployeeStatus);
+    return getEmpDatabaseInstance().mEmployeeStatus;
 }
 
-std::string XyzEmployeeInterfaceBase::getEmployeeType()
+Emp::EmpType XyzEmployeeInterfaceBase::getEmployeeType()
 {
-    return Emp::getEmpTypeToString(getEmpDatabaseInstance().mEmployeeType);
+    return getEmpDatabaseInstance().mEmployeeType;
 }
 
 std::string XyzEmployeeInterfaceBase::getDateOfJoining()
@@ -57,7 +57,10 @@ void XyzEmployeeInterfaceBase::printEmployeeDetails()
 {
     
 }
-
+Emp::EmpType XyzEmployeeInterfaceBase::getType()
+{
+    
+}
 
 
 

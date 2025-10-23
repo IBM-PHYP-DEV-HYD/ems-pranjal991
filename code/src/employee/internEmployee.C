@@ -12,8 +12,30 @@ int XyzInternEmployee::getId()
 
 void XyzInternEmployee::printDetails()
 {
-    ENTRY(getEmployeeName(),getEmployeeID(),getEmployeeType(),getEmployeeStatus(),getEmployeeGender(),getEmployeeDOB(),"Na");
+    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),"Na");
 }
+
+void XyzInternEmployee::printEmployeeDetails()
+{
+    INTERN_DETAILS( \
+    getEmployeeName(), \
+    getEmployeeID(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
+    getEmployeeDOB(), \
+    getDateOfJoining(), \
+    getCollegeName(), \
+    getBranchName());
+
+
+}
+
+ Emp::EmpType XyzInternEmployee::getType()
+ {
+    return Emp::EmpType::INTERN;
+ }
 
 bool XyzInternEmployee::setDateOfLeaving(std::string valParm)
 {

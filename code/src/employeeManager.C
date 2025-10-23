@@ -11,18 +11,18 @@ bool XyzEmployeeManager::addEmployee(Emp::EmpType typeParam)
 
     emp = builder->createEmployee(typeParam);
 
-    std::string sStaus = emp->getEmployeeStatus();
-    if (sStaus == "Active")
+    Emp::EmpStatus sStaus = emp->getEmployeeStatus();
+    if (sStaus == Emp::EmpStatus::ACTIVE)
     {
         mActiveEmployeeQueue.pushBack(emp);
         sRet = true;
     }
-    else if (sStaus == "Inactive")
+    else if (sStaus == Emp::EmpStatus::INACTIVE)
     {
         mInActiveEmployeeQueue.pushBack(emp);
         sRet = true;
     }
-    else if (sStaus == "Resigned")
+    else if (sStaus == Emp::EmpStatus::RESIGNED)
     {
         mResignedEmployeeQueue.pushBack(emp);
         sRet = true;
@@ -65,45 +65,23 @@ void XyzEmployeeManager::displayAllEmployeeDeatails()
     
 }
 
-void XyzEmployeeManager::displayEmployeeDetails(std::string& idParam)
-{
-    XyzEmployeeInterface* ptr = nullptr;
 
-    ptr = searchEmployee(mActiveEmployeeQueue, idParam);
-    if(nullptr == ptr)
+bool XyzEmployeeManager::addLeavesToFulltimeEmployee(int valParam)
+{
+    XyzEmployeeInterface* sPtr = nullptr;
+    sPtr = searchEmployee(mActiveEmployeeQueue,Emp::EmpType::FULLTIME,&XyzEmployeeInterface::getEmployeeType);
+    if(sPtr->getType() == Emp::EmpType::FULLTIME)
     {
-        ptr = searchEmployee(mInActiveEmployeeQueue, idParam);
+        XyzFulltimeEmployee* sTemp = static_cast<XyzFulltimeEmployee*>(sPtr);
+        sTemp->addLeaves(valParam);
     }
-    if(nullptr == ptr)
-    {
-        ptr = searchEmployee(mInActiveEmployeeQueue, idParam);
-    }
-    if(nullptr !=ptr)
-    {
-        ptr->printEmployeeDetails();
-    }
-    else
-    {
-        std::cout<<"Invalid Emp ID: "<<idParam<<std::endl;
-    }
-    
+  
+
 }
 
-XyzEmployeeInterface* XyzEmployeeManager::searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,std::string& idParam)
+Edll<XyzEmployeeInterface*>& XyzEmployeeManager::getActiveEmployeeQueue()
 {
-    uint64_t sItr = 1;
-    XyzEmployeeInterface* sTemp = nullptr;
-    for(sItr = 1;sItr <= queueParam.size();sItr++)
-    {
-        std::string sID =  queueParam[sItr]->getEmployeeID();
-        if(idParam == sID)
-        {
-            sTemp =  queueParam[sItr];
-            break;
-        }
-    }
-    return sTemp;
-
+    return mActiveEmployeeQueue;
 }
 
 #endif

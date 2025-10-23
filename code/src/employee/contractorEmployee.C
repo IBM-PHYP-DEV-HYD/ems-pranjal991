@@ -12,8 +12,28 @@ int XyzContractorEmployee::getId()
 
 void XyzContractorEmployee::printDetails()
 {
-    ENTRY(getEmployeeName(),getEmployeeID(),getEmployeeType(),getEmployeeStatus(),getEmployeeGender(),getEmployeeDOB(),"Na");
+    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),"Na");
 }
+
+void XyzContractorEmployee::printEmployeeDetails()
+{
+    CONTRACTOR_DETAILS( \
+    getEmployeeName(), \
+    getEmployeeID(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
+    getEmployeeDOB(), \
+    getDateOfJoining(), \
+    Emp::getExternalAgenciesToString(getExternalAgency()));  
+
+}
+
+Emp::EmpType XyzContractorEmployee::getType()
+ {
+    return Emp::EmpType::CONTRACTOR;
+ }
 
 bool XyzContractorEmployee::setDateOfLeaving(std::string valParam)
 {
@@ -25,12 +45,12 @@ std::string XyzContractorEmployee::getDateOfLeaving()
 
 }
 
-void XyzContractorEmployee::setExternalAgency(std::string valParam)
+void XyzContractorEmployee::setExternalAgency( Emp::ExternalAgencies valParam)
 {
     mExternalAgency = valParam;
 }
 
-std::string XyzContractorEmployee::getExternalAgency()
+Emp::ExternalAgencies XyzContractorEmployee::getExternalAgency()
 {
     return mExternalAgency;
 }

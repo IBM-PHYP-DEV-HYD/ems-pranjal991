@@ -18,6 +18,7 @@ public:
 
     virtual void printDetails() override;
     void printEmployeeDetails() override;
+    Emp::EmpType getType() override;
 
     uint8_t getTotalLeaves();
     bool setTotalLeaves(uint8_t valPram);
@@ -26,6 +27,7 @@ public:
     uint8_t getLeavesLeft();
     bool setLeavesLeft(uint8_t valPram);
     int getId();
+    void addLeaves(uint8_t valParm);
 
 private:
 

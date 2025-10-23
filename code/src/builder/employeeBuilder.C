@@ -2,7 +2,7 @@
 #define EMPLOYEE_BUILDER_C
 
 
-#include "employeeBuilderInterface.H"
+#include "employeeBuilder.H"
 
 XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType typeParam)
 {
@@ -33,7 +33,7 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
   void EmployeeBuilderInterface::randomDataGeneration(XyzEmployeeInterfaceBase* objParam)
   {
     objParam->getEmpDatabaseInstance().mEmployeeName = Emp::getRandomArrayElement(Emp::names);
-    objParam->getEmpDatabaseInstance().mGender = Emp::getRandomArrayElement(Emp::gender);
+    objParam->getEmpDatabaseInstance().mGender = static_cast<Emp::Gender>((std::rand()%( Emp::getEnumToInt(Emp::Gender::ENDMARKER) - 1)));
     objParam->getEmpDatabaseInstance().mEmployeeStatus = static_cast<Emp::EmpStatus>((std::rand()%( Emp::getEnumToInt(Emp::EmpStatus::ENDMARKER) - 1)));
     objParam->getEmpDatabaseInstance().mDateOfBirth = "na";
     objParam->getEmpDatabaseInstance().mDateOfJoining = "na";
@@ -52,7 +52,7 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
   {
     objParam->getEmpDatabaseInstance().mEmployeeType = Emp::EmpType::CONTRACTOR;
     objParam->getEmpDatabaseInstance().mEmployeeId = generateEmployeeId(Emp::EmpType::CONTRACTOR,objParam->getId());
-    objParam->setExternalAgency(Emp::getRandomArrayElement(Emp::ExternalAgenciesArray));
+    objParam->setExternalAgency(static_cast<Emp::ExternalAgencies>(std::rand()%(Emp::getEnumToInt(Emp::ExternalAgencies::ENDMARKER)-1)));
 
   }
   
