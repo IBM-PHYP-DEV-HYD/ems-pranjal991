@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/pranjalkhanduri/Workspace/ems-pranjal991/code/src/main'
+relocations:     []
+...
