@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="xhlG9TW2-tV3o0kFemS9" name="Page-1">
-        <mxGraphModel dx="2021" dy="1962" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1961" dy="1996" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -278,60 +278,24 @@
                     <mxGeometry y="204" width="250" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="171" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;EmployeeBuilderInterface&lt;/span&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="630" y="110" width="340" height="76" as="geometry">
+                    <mxGeometry x="550" y="110" width="510" height="148" as="geometry">
                         <mxRectangle x="530" y="300" width="190" height="80" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="174" value="&lt;i&gt;+ createEmployee(): *XyzEmployeeInterfaceBase&lt;/i&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="171" vertex="1">
-                    <mxGeometry y="30" width="340" height="22" as="geometry"/>
+                    <mxGeometry y="30" width="510" height="22" as="geometry"/>
                 </mxCell>
-                <mxCell id="215" value="+ build(): &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;xyzEmployeeIF*&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="171" vertex="1">
-                    <mxGeometry y="52" width="340" height="24" as="geometry"/>
+                <mxCell id="215" value="- randonDataGeneration(XyzEmployeeInterfaceBase* obj):void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="171" vertex="1">
+                    <mxGeometry y="52" width="510" height="24" as="geometry"/>
                 </mxCell>
-                <mxCell id="178" value="Clientt" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-220" y="850" width="160" height="60" as="geometry"/>
+                <mxCell id="280" value="- randonDataGenerationFulltimeEmployee(XyzFulltimeEmployee* obj):void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="171">
+                    <mxGeometry y="76" width="510" height="24" as="geometry"/>
                 </mxCell>
-                <mxCell id="180" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="178" vertex="1">
-                    <mxGeometry y="26" width="160" height="8" as="geometry"/>
+                <mxCell id="281" value="- randonDataGenerationContractorEmployee(XyzContractorEmployee* obj):void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="171">
+                    <mxGeometry y="100" width="510" height="24" as="geometry"/>
                 </mxCell>
-                <mxCell id="181" value="+ main(void): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="178" vertex="1">
-                    <mxGeometry y="34" width="160" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="182" value="ConcreteContractorbuilder" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="810" y="650" width="250" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="183" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- employee:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;xyzContractorEmployee*&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="182" vertex="1">
-                    <mxGeometry y="26" width="250" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="184" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="182" vertex="1">
-                    <mxGeometry y="52" width="250" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="185" value="&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ randomDataGeneration(type): bool&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="182" vertex="1">
-                    <mxGeometry y="60" width="250" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="186" value="ConcreteFulltimebuilder" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="471" y="654" width="270" height="86" as="geometry"/>
-                </mxCell>
-                <mxCell id="187" value="- employee:&amp;nbsp;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;xyzFulltimeEmployee*&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="186" vertex="1">
-                    <mxGeometry y="26" width="270" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="188" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="186" vertex="1">
-                    <mxGeometry y="52" width="270" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="231" value="&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;+ randomDataGeneration(type): bool&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="186" vertex="1">
-                    <mxGeometry y="60" width="270" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="190" value="Concreteinternbuilder" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1180" y="650" width="230" height="86" as="geometry"/>
-                </mxCell>
-                <mxCell id="191" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- employee:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;xyzInternEmployee*&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="190" vertex="1">
-                    <mxGeometry y="26" width="230" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="192" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="190" vertex="1">
-                    <mxGeometry y="52" width="230" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="193" value="&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ randomDataGeneration(type): bool&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="190" vertex="1">
-                    <mxGeometry y="60" width="230" height="26" as="geometry"/>
+                <mxCell id="282" value="- randonDataGenerationInternEmployee(XyzInternEmployee* obj):void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="171">
+                    <mxGeometry y="124" width="510" height="24" as="geometry"/>
                 </mxCell>
                 <mxCell id="225" value="Name&amp;nbsp;&lt;div&gt;EmployeeID&lt;/div&gt;&lt;div&gt;Gender&lt;/div&gt;&lt;div&gt;DOB&lt;/div&gt;&lt;div&gt;No setter methods for them&amp;nbsp;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
                     <mxGeometry x="1140" y="-672" width="110" height="120" as="geometry"/>
@@ -353,9 +317,6 @@
                         <mxPoint x="-90" y="-291" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="266" value="EmployeeBuilder *builder = new fulltimebuilder();&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;builder-&amp;gt;createemployee();&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;employeeinterface *emp = builder-&amp;gt;build();&lt;br&gt;&lt;/font&gt;&lt;div&gt;added to the queue of manager queue.pushback(emp);&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="1" vertex="1">
-                    <mxGeometry x="471" y="860" width="519" height="130" as="geometry"/>
-                </mxCell>
                 <mxCell id="267" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;entryX=-0.005;entryY=0.169;entryDx=0;entryDy=0;exitX=1.006;exitY=0.837;exitDx=0;exitDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="242" target="215" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="360" y="402.47" as="sourcePoint"/>
@@ -375,7 +336,7 @@
                 <mxCell id="271" value="XyzEmployeeInterfaceBase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="820" y="-180" width="370" height="86" as="geometry"/>
                 </mxCell>
-                <mxCell id="272" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- mEmployeeDatabase:&amp;nbsp;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="271" vertex="1">
+                <mxCell id="272" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;- mEmpInstance: EmployeeDatabase&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="271" vertex="1">
                     <mxGeometry y="26" width="370" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="273" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="271" vertex="1">
