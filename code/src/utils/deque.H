@@ -193,13 +193,23 @@ template <typename T>
 bool Deque<T>::popFront()
 {
     bool sStatus = false;
-    if(mHead != nullptr)
+    if (mHead != nullptr)
     {
-        Node<T> *sTemp = mHead->mNextPtr;
-        delete(mHead);
-        mHead = sTemp;
-        mHead->mPrevPtr = nullptr;
-        sStatus =  true;
+        if (mHead == mTail)
+        {
+            delete (mHead);
+            mHead = mTail = nullptr;
+            sStatus = true;
+        }
+        else
+        {
+            Node<T> *sTemp = mHead->mNextPtr;
+            delete (mHead);
+            mHead = sTemp;
+            mHead->mPrevPtr = nullptr;
+            sStatus = true;
+        }
+
         decSize();
     }
     return sStatus;

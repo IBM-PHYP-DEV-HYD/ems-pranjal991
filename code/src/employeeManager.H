@@ -21,6 +21,9 @@ class XyzEmployeeManager
     void displayAllEmployeeDeatails();
     bool addLeavesToFulltimeEmployee(int valParam);
     Edll<XyzEmployeeInterface*>& getActiveEmployeeQueue();
+    bool removeEmployee(std::string idParam);
+    bool convertInternToFulltime(std::string idParam);
+
     template<typename T>
     void printEmployee(T valParam,T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
     {
@@ -28,19 +31,21 @@ class XyzEmployeeManager
         searchAndPrint(mInActiveEmployeeQueue, valParam ,getter,printfunc);
         searchAndPrint(mResignedEmployeeQueue, valParam ,getter,printfunc);
     }
+    
     template<typename T>
-    XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,T reqParam,T (XyzEmployeeInterface::*getter)())
+    XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,T reqParam,T (XyzEmployeeInterface::*getter)(),int* val = nullptr)
     {
         uint64_t sItr = 1;
         for(sItr = 1;sItr <= queueParam.size();sItr++)
         {
             if(reqParam == (queueParam[sItr]->*getter)())
             {
+                if(val != nullptr){*val = sItr;}
                 return queueParam[sItr];
             }
         }
 
-
+        return nullptr;
     }
 
     private:
@@ -49,7 +54,7 @@ class XyzEmployeeManager
     Edll<XyzEmployeeInterface*> mInActiveEmployeeQueue;
     Edll<XyzEmployeeInterface*> mResignedEmployeeQueue;
 
-    // XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,std::string& idParam) ;
+    bool removeEmployeInternal(Edll<XyzEmployeeInterface*>& queueParam,std::string& valParam);
 
     template <typename T>
     void searchAndPrint(Edll<XyzEmployeeInterface *> &queueParam, T reqParam, T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())

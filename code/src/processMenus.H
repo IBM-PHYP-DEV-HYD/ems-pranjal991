@@ -12,6 +12,8 @@ class ProcessMenu
     void ProcessSubmenu1();
     void ProcessSubmenu2();
     void ProcessSubmenu3();
+    void ProcessRemoveEmployee();
+    void ConvertEmployee();
     
 
     XyzEmployeeManager* mManager;

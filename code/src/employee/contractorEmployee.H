@@ -19,7 +19,7 @@ class XyzContractorEmployee: public XyzEmployeeInterfaceBase
     void printEmployeeDetails() override;
     Emp::EmpType getType() override;
 
-    bool setDateOfLeaving(std::string valParm);
+    void setDateOfLeaving(std::string valParm);
     std::string getDateOfLeaving();
     void setExternalAgency(Emp::ExternalAgencies valParm);
     Emp::ExternalAgencies getExternalAgency();

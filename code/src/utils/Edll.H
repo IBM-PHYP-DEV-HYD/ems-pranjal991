@@ -48,20 +48,34 @@ bool Edll<T>::insertAtIndex(T valParm, int indexParm)
 template<typename T>
 bool Edll<T>::removeFromIndex(int indexParm)
 {
-    Node<T>* sTemp = Deque<T>::getHead();
+    Node<T> *sTemp = Deque<T>::getHead();
     int sCounter = 1;
-    while (sCounter <= indexParm)
+    if (indexParm == 1)
+    {  
+        Deque<T>::popFront();      
+        // this->popFront();
+        return true;
+    }
+
+    while (sTemp != nullptr && sCounter < indexParm)
     {
-        if(sCounter == indexParm)
-        {
-            sTemp->mPrevPtr->mNextPtr = sTemp->mNextPtr;
-            sTemp->mNextPtr->mPrevPtr = sTemp->mPrevPtr;
-            delete sTemp;
-            sTemp = nullptr;
-            return true;
-        }
         sCounter++;
         sTemp = sTemp->mNextPtr;
     }
-    return false;
+
+    if(sTemp == nullptr)
+    {
+        return false;
+    }
+
+    sTemp->mPrevPtr->mNextPtr = sTemp->mNextPtr;
+
+    if (sTemp->mNextPtr != nullptr)
+    {
+        sTemp->mNextPtr->mPrevPtr = sTemp->mPrevPtr;
+    }
+    this->decSize();
+    delete sTemp;
+    sTemp = nullptr;
+    return true;
 }

@@ -3,7 +3,27 @@
 
 #include "common.H"
 
+std::string Emp::generateEmployeeId(Emp::EmpType typeParm, int idParm)
+  {
+    
+    std::string sRet = " ";
+    sRet= "XYZ" + Emp::getFourDigitNo(idParm);
+    if(Emp::EmpType::FULLTIME == typeParm)
+    {
+        sRet+="F";
+    }
+    else if (typeParm == Emp::EmpType::CONTRACTOR)
+    {
+        sRet+= "C";
+    }
+    else if (typeParm == Emp::EmpType::INTERN)
+    {
+        sRet+= "I";
+    }
 
+    return sRet;
+
+  }
 
 std::string Emp::getEmpTypeToString(Emp::EmpType valParam)
 {

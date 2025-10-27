@@ -37,17 +37,17 @@ void XyzInternEmployee::printEmployeeDetails()
     return Emp::EmpType::INTERN;
  }
 
-bool XyzInternEmployee::setDateOfLeaving(std::string valParm)
+void XyzInternEmployee::setDateOfLeaving(std::string valParm)
 {
-    
+    mDateOfLeaving = valParm;
 }
 
 std::string  XyzInternEmployee::getDateOfLeaving()
 {
-    
+    return mDateOfLeaving;
 }
 
-bool XyzInternEmployee::setCollegeName(Emp::Colleges valParm)
+void XyzInternEmployee::setCollegeName(Emp::Colleges valParm)
 {
     mCollege = valParm;
 }
@@ -57,7 +57,7 @@ std::string  XyzInternEmployee::getCollegeName()
     return Emp::getCollegesToString(mCollege);
 }
 
-bool XyzInternEmployee::setBranchName(Emp::Branches valParm)
+void XyzInternEmployee::setBranchName(Emp::Branches valParm)
 {
     mBranch = valParm;
 }

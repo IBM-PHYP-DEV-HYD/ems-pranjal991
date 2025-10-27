@@ -21,7 +21,7 @@ int main()
             break;
         }   
         case Menu::MainMenu::REMOVE_EMPLOYEE:
-            
+            sPmen.ProcessRemoveEmployee();
             break;
         case Menu::MainMenu::EMPLOYEE_DETAILS:
             {
@@ -48,12 +48,6 @@ int main()
 
 
     return 1;
-    
-    
-}
-
-void procesSubmenu1()
-{
     
     
 }

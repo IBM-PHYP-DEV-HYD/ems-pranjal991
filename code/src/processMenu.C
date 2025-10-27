@@ -191,7 +191,7 @@ void ProcessMenu::ProcessSubmenu3()
             }
             case Menu::SubMenu3::INTERN_TO_FULLTIME:
             {
-
+                ConvertEmployee();
                 break;
             }
             case Menu::SubMenu3::SEARCH_EMP_ID:
@@ -224,6 +224,40 @@ void ProcessMenu::ProcessSubmenu3()
 
 }
 
+void ProcessMenu::ProcessRemoveEmployee()
+{
+    std::string id;
+    bool ret = false;
+    std::cout<<"Enter Employee ID: "<<std::endl;
+    id = Generic::getInputValues<std::string>();
+    ret = mManager->removeEmployee(id);
+    if(!ret)
+    {
+        std::cout<<"FAILED or NOT FOUND"<<std::endl;
+    }
+    else
+    {
+         std::cout<<"SUCCESS"<<std::endl;
+    }
 
+}
+
+void ProcessMenu::ConvertEmployee()
+ {
+    std::string id;
+    bool ret = false;
+    std::cout<<"Enter Employee ID: "<<std::endl;
+    id = Generic::getInputValues<std::string>();
+    ret = mManager->convertInternToFulltime(id);
+    if(!ret)
+    {
+        std::cout<<"FAILED or NOT FOUND"<<std::endl;
+    }
+    else
+    {
+        std::cout<<"SUCCESS"<<std::endl;
+    }
+    
+ }
 
 #endif

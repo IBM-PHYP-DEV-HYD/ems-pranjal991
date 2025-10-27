@@ -81,6 +81,28 @@ void XyzFulltimeEmployee::addLeaves(uint8_t valParm)
 
 }
 
+void XyzFulltimeEmployee::setFulltimeEmployeeName(std::string valParam)
+{
+    getEmpDatabaseInstance().mEmployeeName = valParam;
+}
+
+void XyzFulltimeEmployee::setFulltimeEmployeeID(std::string idParm)
+{
+    getEmpDatabaseInstance().mEmployeeId = idParm;
+
+}
+void XyzFulltimeEmployee::setFulltimeEmployeeType(Emp::EmpType typeParam)
+{
+    getEmpDatabaseInstance().mEmployeeType = typeParam;
+}
+void XyzFulltimeEmployee::setFulltimeEmployeeStatus(Emp::EmpStatus statusParam)
+{
+    getEmpDatabaseInstance().mEmployeeStatus = statusParam;
+}
+void XyzFulltimeEmployee::setFulltimeEmployeeGender(Emp::Gender genderParam)
+{
+    getEmpDatabaseInstance().mGender = genderParam;
+}
 
 
 #endif

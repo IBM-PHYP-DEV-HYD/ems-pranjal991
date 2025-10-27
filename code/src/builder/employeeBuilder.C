@@ -27,6 +27,7 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
         randomDataGenerationInternEmployee(sEmp);
         return sEmp;
     }
+  return nullptr;
     
 }
 
@@ -64,27 +65,27 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
     objParam->setCollegeName(static_cast<Emp::Colleges>(std::rand()%(Emp::getEnumToInt(Emp::Colleges::ENDMARKER)-1)));
   }
 
-  std::string EmployeeBuilderInterface::generateEmployeeId(Emp::EmpType typeParm, int idParm)
-  {
+  // std::string EmployeeBuilderInterface::generateEmployeeId(Emp::EmpType typeParm, int idParm)
+  // {
     
-    std::string sRet = " ";
-    sRet= "XYZ" + Emp::getFourDigitNo(idParm);
-    if(Emp::EmpType::FULLTIME == typeParm)
-    {
-        sRet+="F";
-    }
-    else if (typeParm == Emp::EmpType::CONTRACTOR)
-    {
-        sRet+= "C";
-    }
-    else if (typeParm == Emp::EmpType::INTERN)
-    {
-        sRet+= "I";
-    }
+  //   std::string sRet = " ";
+  //   sRet= "XYZ" + Emp::getFourDigitNo(idParm);
+  //   if(Emp::EmpType::FULLTIME == typeParm)
+  //   {
+  //       sRet+="F";
+  //   }
+  //   else if (typeParm == Emp::EmpType::CONTRACTOR)
+  //   {
+  //       sRet+= "C";
+  //   }
+  //   else if (typeParm == Emp::EmpType::INTERN)
+  //   {
+  //       sRet+= "I";
+  //   }
 
-    return sRet;
+  //   return sRet;
 
-  }
+  // }
 
 
 #endif

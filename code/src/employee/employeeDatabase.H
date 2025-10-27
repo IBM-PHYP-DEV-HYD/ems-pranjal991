@@ -7,6 +7,7 @@
 // class forwarding
 class EmployeeBuilderInterface;
 class XyzEmployeeInterfaceBase;
+class XyzFulltimeEmployee;
 
 class EmployeeDatabase
 {
@@ -39,7 +40,7 @@ class EmployeeDatabase
 
     friend class EmployeeBuilderInterface;
     friend class XyzEmployeeInterfaceBase;
-
+    friend class XyzFulltimeEmployee;
 };
 
 

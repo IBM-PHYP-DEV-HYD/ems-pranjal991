@@ -59,7 +59,7 @@ void XyzEmployeeInterfaceBase::printEmployeeDetails()
 }
 Emp::EmpType XyzEmployeeInterfaceBase::getType()
 {
-    
+    return Emp::EmpType::ENDMARKER;
 }
 
 

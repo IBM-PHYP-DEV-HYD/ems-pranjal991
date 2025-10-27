@@ -27,7 +27,7 @@ class EmployeeBuilderInterface:public XyzEmployeeInterfaceBase
     void randomDataGenerationFulltimeEmployee(XyzFulltimeEmployee* objParam);
     void randomDataGenerationContractorEmployee(XyzContractorEmployee* objParam);
     void randomDataGenerationInternEmployee(XyzInternEmployee* objParam);
-    std::string generateEmployeeId(Emp::EmpType typeParm,int idParm);
+    // std::string generateEmployeeId(Emp::EmpType typeParm,int idParm);
 
   
 

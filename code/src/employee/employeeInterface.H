@@ -29,8 +29,6 @@ class XyzEmployeeInterface
     virtual void printEmployeeDetails() = 0;
     virtual Emp::EmpType getType() = 0;
 
-    private:
-
 
 };
 

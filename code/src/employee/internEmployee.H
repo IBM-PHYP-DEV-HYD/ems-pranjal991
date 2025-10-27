@@ -8,7 +8,7 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
 {
     public:
     
-    XyzInternEmployee():mCollege(),mBranch(),mDateOfLeaving("NULL"){};
+    XyzInternEmployee():mCollege(),mBranch(),mDateOfLeaving("NULL"){mIid++;};
 
     XyzInternEmployee(const XyzInternEmployee &object) = delete;
     XyzInternEmployee(const XyzInternEmployee &&object)= delete;
@@ -21,11 +21,11 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
     void printEmployeeDetails() override;
     Emp::EmpType getType() override;
 
-    bool setDateOfLeaving(std::string valParam);
+    void setDateOfLeaving(std::string valParam);
     std::string getDateOfLeaving();
-    bool setCollegeName(Emp::Colleges valParam);
+    void setCollegeName(Emp::Colleges valParam);
     std::string getCollegeName();
-    bool setBranchName(Emp::Branches valParam);
+    void setBranchName(Emp::Branches valParam);
     std::string getBranchName();
     int getId();
 

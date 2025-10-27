@@ -143,8 +143,6 @@ namespace Emp
         ENDMARKER
     };
 
-    static std::string ExternalAgenciesArray[3] = {"Avengers","Justice League","X-Men"};
-
     struct DateStruct
     {
         uint8_t Day;
@@ -152,20 +150,7 @@ namespace Emp
         uint16_t Year;
     };
 
-    // static std::string s_EmpTypes[] = {"Fulltime","Contractor","Intern"};
-    // static std::string s_EmpStatus[] = {"Active","Inactive","Resigned"};
-    // static std::string Colleges[] = {"IIT Delhi","IIT Mumbai","IIT Kanpur","IIT Hyderabad","NIT Wrangal","NIT Tiruchi"};
-    // static std::string Branches[] = {"CSE","CSIT","ECE"};
     static std::string names[10] = {"Mohan","Reena","Gauri","Saket","Sangeeta","Zoravar","Anirudh","Reddy","Tom","Jerry"};
-    // static std::string gender[2] = {"Male","Female"};
-    // static std::string status[3] = {"Active","Inactive",""}
-    static DateStruct Dates[10] = {
-        {},
-        {},
-        {},
-        {},
-
-    };
 
     template <typename T, size_t N>
     T getRandomArrayElement(T (&arr)[N])
@@ -196,6 +181,7 @@ namespace Emp
     std::string getBranchesToString(Emp::Branches valParam);
     std::string getGenderToString(Emp::Gender valParam);
     std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam);
+    std::string generateEmployeeId(Emp::EmpType typeParm, int idParm);
     
 }
 

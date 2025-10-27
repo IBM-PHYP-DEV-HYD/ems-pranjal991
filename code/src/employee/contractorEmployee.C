@@ -35,14 +35,14 @@ Emp::EmpType XyzContractorEmployee::getType()
     return Emp::EmpType::CONTRACTOR;
  }
 
-bool XyzContractorEmployee::setDateOfLeaving(std::string valParam)
+void XyzContractorEmployee::setDateOfLeaving(std::string valParam)
 {
-    
+    mDateOfLeaving = valParam;
 }
 
 std::string XyzContractorEmployee::getDateOfLeaving()
 {
-
+    return mDateOfLeaving;
 }
 
 void XyzContractorEmployee::setExternalAgency( Emp::ExternalAgencies valParam)

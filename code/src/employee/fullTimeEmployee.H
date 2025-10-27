@@ -29,6 +29,12 @@ public:
     int getId();
     void addLeaves(uint8_t valParm);
 
+    void setFulltimeEmployeeName(std::string valParam);
+    void setFulltimeEmployeeID(std::string idParm);
+    void setFulltimeEmployeeType(Emp::EmpType typeParam);
+    void setFulltimeEmployeeStatus(Emp::EmpStatus statusParam);
+    void setFulltimeEmployeeGender(Emp::Gender genderParam);
+
 private:
 
     unsigned int mTotalLeaves:8;    
