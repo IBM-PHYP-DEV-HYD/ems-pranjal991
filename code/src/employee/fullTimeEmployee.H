@@ -29,6 +29,7 @@ public:
     int getId();
     void addLeaves(uint8_t valParm);
 
+    // required when Intern to Fulltime conversion happens
     void setFulltimeEmployeeName(std::string valParam);
     void setFulltimeEmployeeID(std::string idParm);
     void setFulltimeEmployeeType(Emp::EmpType typeParam);
@@ -40,7 +41,7 @@ private:
     unsigned int mTotalLeaves:8;    
     unsigned int mLeavesAwailed:8;
     unsigned int mLeavesRemaining:8;
-    static int mFid;
+    static int mFid; // every object generated will be assigned a ID to be used for generating employeeid 
 };
 
 

@@ -8,6 +8,10 @@
 
 #include "utils/common.H"
 
+/**
+ * This class generates the Employee Objects, fill it with random data and return it to the Manager class
+ */
+
 class EmployeeBuilderInterface:public XyzEmployeeInterfaceBase
 {
     public:
@@ -23,10 +27,11 @@ class EmployeeBuilderInterface:public XyzEmployeeInterfaceBase
     XyzEmployeeInterfaceBase* createEmployee(Emp::EmpType typeParam);
 
     private:
-    void randomDataGeneration(XyzEmployeeInterfaceBase* obj);
+    void randomDataGeneration(XyzEmployeeInterfaceBase* objParam);
     void randomDataGenerationFulltimeEmployee(XyzFulltimeEmployee* objParam);
     void randomDataGenerationContractorEmployee(XyzContractorEmployee* objParam);
     void randomDataGenerationInternEmployee(XyzInternEmployee* objParam);
+
     std::string randomDateofJoiningGeneration();
     std::string randomDateofBirthGeneration();
 

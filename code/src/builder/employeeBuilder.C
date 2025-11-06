@@ -4,6 +4,9 @@
 
 #include "employeeBuilder.H"
 
+/// @brief Create the employee object based on the type provided
+/// @param typeParam employee type 
+/// @return return the employee object if success.
 XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType typeParam)
 {
     if (Emp::EmpType::FULLTIME == typeParam)
@@ -31,6 +34,8 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
     
 }
 
+  /// @brief Generate random common emplyee data 
+  /// @param objParam 
   void EmployeeBuilderInterface::randomDataGeneration(XyzEmployeeInterfaceBase* objParam)
   {
     objParam->getEmpDatabaseInstance().mEmployeeName = Emp::getRandomArrayElement(Emp::names);

@@ -3,6 +3,9 @@
 
 #include "employeeManager.H"
 
+/// @brief Add Random generated employee to the queues, based on there type.
+/// @param typeParam employee type passed
+/// @return 
 bool XyzEmployeeManager::addEmployee(Emp::EmpType typeParam)
 {
     bool sRet = false;
@@ -32,20 +35,26 @@ bool XyzEmployeeManager::addEmployee(Emp::EmpType typeParam)
 
 }
 
+/// @brief Generate random employeeType
+/// @return return emp type generated
 Emp::EmpType XyzEmployeeManager::generateEmployeeType()
 {
     return static_cast<Emp::EmpType>(std::rand()% (Emp::getEnumToInt(Emp::EmpType::ENDMARKER)));
 }
 
-void XyzEmployeeManager::displayAllEmployeeDeatails()
+/// @brief Display summery of all employees
+/// @return True if success otherwise false
+bool XyzEmployeeManager::displayAllEmployeeDeatails()
 {
     uint64_t iterator = 0;
+    bool sRet = false;
     if(!mActiveEmployeeQueue.empty())
     {
         for(iterator=1;iterator <=mActiveEmployeeQueue.size();iterator++)
         {
             mActiveEmployeeQueue[iterator]->printDetails();
         }
+        sRet = true;
         
     }
     if(!mInActiveEmployeeQueue.empty())
@@ -54,6 +63,7 @@ void XyzEmployeeManager::displayAllEmployeeDeatails()
         {
             mInActiveEmployeeQueue[iterator]->printDetails();
         }
+        sRet = true;
     }
     if(!mResignedEmployeeQueue.empty())
     {
@@ -61,17 +71,22 @@ void XyzEmployeeManager::displayAllEmployeeDeatails()
         {
             mResignedEmployeeQueue[iterator]->printDetails();
         }
+        sRet = true;
     }
+    return sRet;
     
 }
 
 
+/// @brief Adding leaves to all fulltime employees
+/// @param valParam leaves to be added
+/// @return true is success false if fail
 bool XyzEmployeeManager::addLeavesToFulltimeEmployee(int valParam)
 {
     XyzEmployeeInterface* sPtr = nullptr;
     bool ret = false;
     sPtr = searchEmployee(mActiveEmployeeQueue,Emp::EmpType::FULLTIME,&XyzEmployeeInterface::getEmployeeType);
-    if(sPtr->getType() == Emp::EmpType::FULLTIME)
+    if(sPtr != nullptr && sPtr->getType() == Emp::EmpType::FULLTIME)
     {
         XyzFulltimeEmployee* sTemp = static_cast<XyzFulltimeEmployee*>(sPtr);
         sTemp->addLeaves(valParam);
@@ -81,11 +96,9 @@ bool XyzEmployeeManager::addLeavesToFulltimeEmployee(int valParam)
 
 }
 
-Edll<XyzEmployeeInterface*>& XyzEmployeeManager::getActiveEmployeeQueue()
-{
-    return mActiveEmployeeQueue;
-}
-
+/// @brief Wrapper ffunction to Remove the Employee Object from the queues
+/// @param idParam name or employee ID
+/// @return 
 bool XyzEmployeeManager::removeEmployee(std::string idParam)
 {
     bool ret = false;
@@ -104,6 +117,10 @@ bool XyzEmployeeManager::removeEmployee(std::string idParam)
     return ret;
 }
 
+/// @brief Internal Function to remove the emp object from the queue and add it to Resigned queue
+/// @param queueParam queue to searched passed
+/// @param valParam emloyee id or name parameter to be searched passed
+/// @return 
 bool XyzEmployeeManager::removeEmployeInternal(Edll<XyzEmployeeInterface*>& queueParam,std::string& valParam)
 {
     XyzEmployeeInterface* sPtr = nullptr;
@@ -122,6 +139,9 @@ bool XyzEmployeeManager::removeEmployeInternal(Edll<XyzEmployeeInterface*>& queu
 
 }
 
+ /// @brief Convert the Intern object to the fulltime , by creating new fulltime object and deleting the intern obj
+ /// @param idParam Employee ID passed here to be searched and converted.
+ /// @return 
  bool XyzEmployeeManager::convertInternToFulltime(std::string idParam)
  {
     XyzEmployeeInterface* sPtr = nullptr;

@@ -128,7 +128,10 @@ void ProcessMenu::ProcessSubmenu2()
         case Menu::SubMenu2::ALL_EMPLOYEE_SUMMERY:
         {
             HEADER;
-            mManager->displayAllEmployeeDeatails();
+            if(!mManager->displayAllEmployeeDeatails())
+            {
+                std::cout<<"No Record."<<std::endl;
+            }
 
             break;
         }
@@ -188,7 +191,10 @@ void ProcessMenu::ProcessSubmenu3()
             {
                 int sVal = 1 + std::rand() % 22;
                 std::cout<<"Adding random leaves: "<<sVal<<std::endl;
-                mManager->addLeavesToFulltimeEmployee(sVal);
+                if (!mManager->addLeavesToFulltimeEmployee(sVal))
+                {
+                    std::cout<<"Employees Not Found ";
+                }
                 
                 break;
             }

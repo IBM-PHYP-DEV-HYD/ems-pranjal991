@@ -29,7 +29,7 @@ class XyzContractorEmployee: public XyzEmployeeInterfaceBase
 
     Emp::ExternalAgencies mExternalAgency;
     std::string mDateOfLeaving;
-    static int mCid;    
+    static int mCid;  // every object generated will be assigned a ID to be used for generating employeeid   
 
 };
 

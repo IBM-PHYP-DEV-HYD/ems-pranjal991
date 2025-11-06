@@ -5,6 +5,7 @@
 #include "builder/employeeBuilder.H"
 #include "utils/Edll.H"
 
+/// @brief 
 class XyzEmployeeManager
 {
     public:
@@ -18,12 +19,16 @@ class XyzEmployeeManager
 
     bool addEmployee(Emp::EmpType typeParam);
     Emp::EmpType generateEmployeeType();
-    void displayAllEmployeeDeatails();
+    bool displayAllEmployeeDeatails();
     bool addLeavesToFulltimeEmployee(int valParam);
-    Edll<XyzEmployeeInterface*>& getActiveEmployeeQueue();
     bool removeEmployee(std::string idParam);
     bool convertInternToFulltime(std::string idParam);
 
+    /// @brief Wrapper function to search the employee and print its details in all 3 queues
+    /// @tparam T 
+    /// @param valParam 
+    /// @param getter 
+    /// @param printfunc 
     template<typename T>
     void printEmployee(T valParam,T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
     {
@@ -32,6 +37,13 @@ class XyzEmployeeManager
         searchAndPrint(mResignedEmployeeQueue, valParam ,getter,printfunc);
     }
     
+    /// @brief Search the employee based on  reqparam in the queue, and return the respective employee object
+    /// @tparam T 
+    /// @param queueParam desired queue in which search to be performed
+    /// @param reqParam parameter passed based on which search to be done
+    /// @param getter pass the respective getter function for comparision
+    /// @param val provides the index of the employeeInterface object in the queue, required while removing the object from queue
+    /// @return 
     template<typename T>
     XyzEmployeeInterface* searchEmployee(Edll<XyzEmployeeInterface*>& queueParam,T reqParam,T (XyzEmployeeInterface::*getter)(),int* val = nullptr)
     {
@@ -56,6 +68,12 @@ class XyzEmployeeManager
 
     bool removeEmployeInternal(Edll<XyzEmployeeInterface*>& queueParam,std::string& valParam);
 
+    /// @brief To search the queue based on reqparm and  call the print function of respective Employee objects
+    /// @tparam T 
+    /// @param queueParam queue passed
+    /// @param reqParam enum or string parameter based on which comparison need to be done.
+    /// @param getter pass the  respective getter function for comparision
+    /// @param printfunc pass the respective print function of the EmployeeInterface class
     template <typename T>
     void searchAndPrint(Edll<XyzEmployeeInterface *> &queueParam, T reqParam, T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
     {
