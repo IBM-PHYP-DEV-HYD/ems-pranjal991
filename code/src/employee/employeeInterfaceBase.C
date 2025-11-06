@@ -9,9 +9,9 @@ bool XyzEmployeeInterfaceBase::addDateOfJoining()
     return true;
 }
 
-bool XyzEmployeeInterfaceBase:: setEmployeeStatus()
+void XyzEmployeeInterfaceBase:: setEmployeeStatus(Emp::EmpStatus sParam)
 {
-    return true;
+    getEmpDatabaseInstance().mEmployeeStatus = sParam;
 }
 
 std::string XyzEmployeeInterfaceBase:: getEmployeeName()
@@ -51,11 +51,11 @@ std::string XyzEmployeeInterfaceBase::getDateOfJoining()
 
 void XyzEmployeeInterfaceBase::printDetails()
 {
-
+    //...
 }
 void XyzEmployeeInterfaceBase::printEmployeeDetails()
 {
-    
+    //...
 }
 Emp::EmpType XyzEmployeeInterfaceBase::getType()
 {

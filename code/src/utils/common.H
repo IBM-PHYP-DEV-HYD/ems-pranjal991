@@ -5,15 +5,31 @@
 #include <sstream>
 #include <iostream>
 
+#define HEADER \
+{ \
+    std::cout<<" -----------------------------------------------------------------------------------------------------------"<<std::endl; \
+    std::cout<<" |                                    Employee Details                                                     | "<<std::endl; \
+    std::cout<<" -----------------------------------------------------------------------------------------------------------"<<std::endl; \
+    std::cout<<" | "<<std::setw(15)<<"Employee Name"; \
+    std::cout<<" | "<<std::setw(10)<<"ID"; \
+    std::cout<<" | "<<std::setw(10)<<"Type"; \
+    std::cout<<" | "<<std::setw(10)<<"Status"; \
+    std::cout<<" | "<<std::setw(10)<<"Gender"; \
+    std::cout<<" | "<<std::setw(15)<<"Date of Birth"; \
+    std::cout<<" | "<<std::setw(15)<<"Date of Joining"; \
+    std::cout<<" | "<<std::endl; \
+} \
+
 #define ENTRY(employeename,id,type,status,gender,dob,doj) \
    { \
-    std::cout<<" | "<<employeename<<"    " \
-                                "| "<<id<<"     " \
-                                "| "<<type<<"      " \
-                                "| "<<status<<"     " \
-                                "| "<<gender<<"     " \
-                                "| "<<dob<<"        " \
-                                "| "<<doj<<"        |" <<std::endl;}
+    std::cout<<" | "<<std::setw(15)<<employeename; \
+    std::cout<<" | "<<std::setw(10)<<id; \
+    std::cout<<" | "<<std::setw(10)<<type; \
+    std::cout<<" | "<<std::setw(10)<<status; \
+    std::cout<<" | "<<std::setw(10)<<gender; \
+    std::cout<<" | "<<std::setw(15)<<dob; \
+    std::cout<<" | "<<std::setw(15)<<doj; \
+    std::cout<<" | "<<std::endl;}
 
 #define COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
 { \
@@ -145,10 +161,12 @@ namespace Emp
 
     struct DateStruct
     {
-        uint8_t Day;
-        std::string Month;
+        int Day:8;
+        int  Month:8;
         uint16_t Year;
     };
+
+
 
     static std::string names[10] = {"Mohan","Reena","Gauri","Saket","Sangeeta","Zoravar","Anirudh","Reddy","Tom","Jerry"};
 
@@ -228,8 +246,6 @@ namespace Menu
     Menu::SubMenu1 SubMenu1Options();
     Menu::SubMenu2 SubMenu2Options();
     Menu::SubMenu3 SubMenu3Options();
-
-    void printDetailsHeader();
 
 
 

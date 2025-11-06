@@ -34,11 +34,10 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
   void EmployeeBuilderInterface::randomDataGeneration(XyzEmployeeInterfaceBase* objParam)
   {
     objParam->getEmpDatabaseInstance().mEmployeeName = Emp::getRandomArrayElement(Emp::names);
-    objParam->getEmpDatabaseInstance().mGender = static_cast<Emp::Gender>((std::rand()%( Emp::getEnumToInt(Emp::Gender::ENDMARKER) - 1)));
-    objParam->getEmpDatabaseInstance().mEmployeeStatus = static_cast<Emp::EmpStatus>((std::rand()%( Emp::getEnumToInt(Emp::EmpStatus::ENDMARKER) - 1)));
-    objParam->getEmpDatabaseInstance().mDateOfBirth = "na";
-    objParam->getEmpDatabaseInstance().mDateOfJoining = "na";
-    
+    objParam->getEmpDatabaseInstance().mGender = static_cast<Emp::Gender>((std::rand()%( Emp::getEnumToInt(Emp::Gender::ENDMARKER))));
+    objParam->getEmpDatabaseInstance().mEmployeeStatus = static_cast<Emp::EmpStatus>((std::rand()%( Emp::getEnumToInt(Emp::EmpStatus::ENDMARKER))));
+    objParam->getEmpDatabaseInstance().mDateOfBirth = randomDateofBirthGeneration();
+    objParam->getEmpDatabaseInstance().mDateOfJoining = randomDateofJoiningGeneration();
   }
 
   void EmployeeBuilderInterface::randomDataGenerationFulltimeEmployee(XyzFulltimeEmployee* objParam)
@@ -53,7 +52,7 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
   {
     objParam->getEmpDatabaseInstance().mEmployeeType = Emp::EmpType::CONTRACTOR;
     objParam->getEmpDatabaseInstance().mEmployeeId = generateEmployeeId(Emp::EmpType::CONTRACTOR,objParam->getId());
-    objParam->setExternalAgency(static_cast<Emp::ExternalAgencies>(std::rand()%(Emp::getEnumToInt(Emp::ExternalAgencies::ENDMARKER)-1)));
+    objParam->setExternalAgency(static_cast<Emp::ExternalAgencies>(std::rand()%(Emp::getEnumToInt(Emp::ExternalAgencies::ENDMARKER))));
 
   }
   
@@ -61,31 +60,33 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
   {
     objParam->getEmpDatabaseInstance().mEmployeeType = Emp::EmpType::INTERN;
     objParam->getEmpDatabaseInstance().mEmployeeId = generateEmployeeId(Emp::EmpType::INTERN,objParam->getId());
-    objParam->setBranchName(static_cast<Emp::Branches>(std::rand()%(Emp::getEnumToInt(Emp::Branches::ENDMARKER)-1)));
-    objParam->setCollegeName(static_cast<Emp::Colleges>(std::rand()%(Emp::getEnumToInt(Emp::Colleges::ENDMARKER)-1)));
+    objParam->setBranchName(static_cast<Emp::Branches>(std::rand()%(Emp::getEnumToInt(Emp::Branches::ENDMARKER))));
+    objParam->setCollegeName(static_cast<Emp::Colleges>(std::rand()%(Emp::getEnumToInt(Emp::Colleges::ENDMARKER))));
   }
 
-  // std::string EmployeeBuilderInterface::generateEmployeeId(Emp::EmpType typeParm, int idParm)
-  // {
+  std::string  EmployeeBuilderInterface::randomDateofJoiningGeneration()
+  {
+    int sMonth = 1 + std::rand() % 12;
+    int sDay = 1 + std::rand() % 30;
+    int sYear = 1990 + std::rand()% (2024-1990 +1);
     
-  //   std::string sRet = " ";
-  //   sRet= "XYZ" + Emp::getFourDigitNo(idParm);
-  //   if(Emp::EmpType::FULLTIME == typeParm)
-  //   {
-  //       sRet+="F";
-  //   }
-  //   else if (typeParm == Emp::EmpType::CONTRACTOR)
-  //   {
-  //       sRet+= "C";
-  //   }
-  //   else if (typeParm == Emp::EmpType::INTERN)
-  //   {
-  //       sRet+= "I";
-  //   }
+    std::string sDate = std::to_string(sDay) + "/" + std::to_string(sMonth) + "/" + std::to_string(sYear);
 
-  //   return sRet;
+    return sDate;
 
-  // }
+  }
+
+  std::string  EmployeeBuilderInterface::randomDateofBirthGeneration()
+  {
+    int sMonth = 1 + std::rand() % 12;
+    int sDay = 1 + std::rand() % 30;
+    int sYear = 1990 + std::rand() % (2000 - 1990 + 1);
+    
+    std::string sDate = std::to_string(sDay) + "/" + std::to_string(sMonth) + "/" + std::to_string(sYear);
+
+    return sDate;
+
+  }
 
 
 #endif

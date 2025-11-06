@@ -127,7 +127,7 @@ void ProcessMenu::ProcessSubmenu2()
         {
         case Menu::SubMenu2::ALL_EMPLOYEE_SUMMERY:
         {
-            Menu::printDetailsHeader();
+            HEADER;
             mManager->displayAllEmployeeDeatails();
 
             break;
@@ -143,12 +143,14 @@ void ProcessMenu::ProcessSubmenu2()
         case Menu::SubMenu2::EMPLOYEE_SUMMERY_AIR:
         {
             Emp::EmpStatus sTemp = inputEmployeeStatus();
+            HEADER;
             mManager->printEmployee(sTemp,&XyzEmployeeInterface::getEmployeeStatus,&XyzEmployeeInterface::printDetails);
             break;
         }
         case Menu::SubMenu2::EMPLOYEE_SUMMERY_FCI:
         {
             Emp::EmpType sTemp = inputEmployeeType();
+            HEADER;
             mManager->printEmployee(sTemp,&XyzEmployeeInterface::getEmployeeType,&XyzEmployeeInterface::printDetails);
             
             break;
@@ -156,6 +158,7 @@ void ProcessMenu::ProcessSubmenu2()
         case Menu::SubMenu2::EMPLOYEE_SUMMERY_MF:
         {
             Emp::Gender sTemp = inputEmployeeGender();
+            HEADER;
             mManager->printEmployee(sTemp,&XyzEmployeeInterface::getEmployeeGender,&XyzEmployeeInterface::printDetails);
             break;
         }

@@ -17,7 +17,7 @@ SRCDIR  = ./src
 OBJDIR  = ./obj
 BINDIR  = ./bin
 
-FILES   := $(wildcard $(SRCDIR)/*.C)
+FILES   := $(wildcard $(SRCDIR)/**/*.C)
 OBJECTS := $(FILES:$(SRCDIR)/%.C=$(OBJDIR)/%.o)
 
 $(BINDIR)/$(TARGET): $(OBJECTS)

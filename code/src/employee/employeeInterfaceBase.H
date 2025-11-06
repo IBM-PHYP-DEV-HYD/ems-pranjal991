@@ -19,7 +19,7 @@ class XyzEmployeeInterfaceBase : public XyzEmployeeInterface
     virtual ~XyzEmployeeInterfaceBase() = default;
     
     bool addDateOfJoining() override;
-    bool setEmployeeStatus() final;
+    void setEmployeeStatus(Emp::EmpStatus) final;
     std::string getEmployeeName() final;
     std::string getEmployeeID() final;
     Emp::Gender getEmployeeGender() final;

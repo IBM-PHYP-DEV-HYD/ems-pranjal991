@@ -17,7 +17,7 @@ class XyzEmployeeInterface
     virtual ~XyzEmployeeInterface() = default;
 
     virtual bool addDateOfJoining() = 0;
-    virtual bool setEmployeeStatus() = 0;
+    virtual void setEmployeeStatus(Emp::EmpStatus) = 0;
     virtual std::string getEmployeeName() = 0;
     virtual std::string getEmployeeID() = 0;
     virtual Emp::Gender getEmployeeGender() = 0;

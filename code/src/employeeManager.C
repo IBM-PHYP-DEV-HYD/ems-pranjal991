@@ -34,7 +34,7 @@ bool XyzEmployeeManager::addEmployee(Emp::EmpType typeParam)
 
 Emp::EmpType XyzEmployeeManager::generateEmployeeType()
 {
-    return static_cast<Emp::EmpType>(std::rand()% (Emp::getEnumToInt(Emp::EmpType::ENDMARKER)-1));
+    return static_cast<Emp::EmpType>(std::rand()% (Emp::getEnumToInt(Emp::EmpType::ENDMARKER)));
 }
 
 void XyzEmployeeManager::displayAllEmployeeDeatails()
@@ -110,6 +110,9 @@ bool XyzEmployeeManager::removeEmployeInternal(Edll<XyzEmployeeInterface*>& queu
     bool ret = false;
     int sIndex = 0;
     sPtr = searchEmployee(queueParam,valParam,&XyzEmployeeInterface::getEmployeeID,&sIndex);
+    // add them to resigned
+    sPtr->setEmployeeStatus(Emp::EmpStatus::RESIGNED);
+    mResignedEmployeeQueue.pushBack(sPtr);
     if(sPtr!= nullptr)
     {
         queueParam.removeFromIndex(sIndex);

@@ -13,7 +13,7 @@ int XyzInternEmployee::getId()
 void XyzInternEmployee::printDetails()
 {
     ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
-    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),"Na");
+    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),getDateOfJoining());
 }
 
 void XyzInternEmployee::printEmployeeDetails()
