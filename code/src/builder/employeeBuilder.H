@@ -32,8 +32,11 @@ class EmployeeBuilderInterface:public XyzEmployeeInterfaceBase
     void randomDataGenerationContractorEmployee(XyzContractorEmployee* objParam);
     void randomDataGenerationInternEmployee(XyzInternEmployee* objParam);
 
-    std::string randomDateofJoiningGeneration();
-    std::string randomDateofBirthGeneration();
+    void randomDateofJoiningGeneration(XyzEmployeeInterfaceBase* objParam);
+    void randomDateofBirthGeneration(XyzEmployeeInterfaceBase* objParam);
+
+    Emp::DateStruct generateDateofLeavingContractor(Emp::DateStruct valParam);
+    Emp::DateStruct generateDateofLeavingIntern(Emp::DateStruct valParam);
 
 
   

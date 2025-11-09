@@ -41,7 +41,7 @@ Emp::Gender XyzEmployeeInterfaceBase:: getEmployeeGender()
 
 /// @brief getter to get the rmployee DOB
 /// @return 
-std::string XyzEmployeeInterfaceBase:: getEmployeeDOB()
+Emp::DateStruct XyzEmployeeInterfaceBase:: getEmployeeDOB()
 {
     return getEmpDatabaseInstance().mDateOfBirth;
 }
@@ -62,14 +62,14 @@ Emp::EmpType XyzEmployeeInterfaceBase::getEmployeeType()
 
 /// @brief getter to get the date of joining
 /// @return 
-std::string XyzEmployeeInterfaceBase::getDateOfJoining()
+Emp::DateStruct XyzEmployeeInterfaceBase::getDateOfJoining()
 {
     return getEmpDatabaseInstance().mDateOfJoining;
 }
 
 void XyzEmployeeInterfaceBase::printDetails()
 {
-    //...
+    //...–
 }
 void XyzEmployeeInterfaceBase::printEmployeeDetails()
 {

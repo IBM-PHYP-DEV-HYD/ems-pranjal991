@@ -78,7 +78,6 @@ class XyzEmployeeManager
     void searchAndPrint(Edll<XyzEmployeeInterface *> &queueParam, T reqParam, T (XyzEmployeeInterface::*getter)(),void (XyzEmployeeInterface::*printfunc)())
     {
         uint64_t sItr = 1;
-        XyzEmployeeInterface *sTemp = nullptr;
         for (sItr = 1; sItr <= queueParam.size(); sItr++)
         {
             if ((queueParam[sItr]->*getter)() == reqParam)

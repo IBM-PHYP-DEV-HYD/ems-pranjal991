@@ -7,7 +7,7 @@ class XyzFulltimeEmployee : public XyzEmployeeInterfaceBase
 {
 public:
 
-    XyzFulltimeEmployee():mLeavesAwailed(0),mLeavesRemaining(0),mTotalLeaves(0){ mFid++;};
+    XyzFulltimeEmployee():mTotalLeaves(0),mLeavesAwailed(0),mLeavesRemaining(0){ mFid++;};
 
     XyzFulltimeEmployee(const XyzFulltimeEmployee &object) = delete;
     XyzFulltimeEmployee(const XyzFulltimeEmployee &&object)= delete;

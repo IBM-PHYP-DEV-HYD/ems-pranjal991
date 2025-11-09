@@ -8,8 +8,18 @@ int XyzFulltimeEmployee::mFid = 0;
 void XyzFulltimeEmployee::printDetails()
 {
     
-    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
-    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),getDateOfJoining());
+    ENTRY(getEmployeeName(),getEmployeeID(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
+    std::to_string(getLeavesAwailed()),\
+    std::to_string(getLeavesLeft()),\
+    "NA",\
+    "NA",\
+    "NA",\
+    "NA");
 
 }
 
@@ -21,8 +31,8 @@ void XyzFulltimeEmployee::printEmployeeDetails()
     Emp::getEmpTypeToString(getEmployeeType()), \
     Emp::getEmpStatusToString(getEmployeeStatus()), \
     Emp::getGenderToString(getEmployeeGender()), \
-    getEmployeeDOB(), \
-    getDateOfJoining(), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
     getLeavesAwailed(), \
     getLeavesLeft());
 

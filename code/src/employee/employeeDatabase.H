@@ -9,6 +9,13 @@ class EmployeeBuilderInterface;
 class XyzEmployeeInterfaceBase;
 class XyzFulltimeEmployee;
 
+// struct DateStruct
+//     {
+//         int Day:8;
+//         int  Month:8;
+//         uint16_t Year;
+//     };
+
 class EmployeeDatabase
 {
     private:
@@ -18,8 +25,9 @@ class EmployeeDatabase
     Emp::EmpType mEmployeeType;
     Emp::EmpStatus mEmployeeStatus;
     Emp::Gender mGender;
-    std::string mDateOfBirth;
-    std::string mDateOfJoining;
+    Emp::DateStruct mDateOfBirth;
+    Emp::DateStruct mDateOfJoining;
+    Emp::DateStruct obj;
 
     public:
     EmployeeDatabase():
@@ -28,8 +36,8 @@ class EmployeeDatabase
             mEmployeeType(Emp::EmpType::ENDMARKER),
             mEmployeeStatus(Emp::EmpStatus::ENDMARKER),
             mGender(Emp::Gender::ENDMARKER),
-            mDateOfBirth("NA"),
-            mDateOfJoining("NA"){}
+            mDateOfBirth(),
+            mDateOfJoining(){}
 
     EmployeeDatabase(const EmployeeDatabase &object) = delete;
     EmployeeDatabase(const EmployeeDatabase &&object)= delete;

@@ -12,8 +12,18 @@ int XyzContractorEmployee::getId()
 
 void XyzContractorEmployee::printDetails()
 {
-    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
-    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),getDateOfJoining());
+    ENTRY(getEmployeeName(),getEmployeeID(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
+    Emp::generateDateToString(getDateOfLeaving()), \
+    "NA", \
+    "NA", \
+    Emp::getExternalAgenciesToString(getExternalAgency()), \
+    "NA", \
+    "NA");
 }
 
 void XyzContractorEmployee::printEmployeeDetails()
@@ -24,8 +34,8 @@ void XyzContractorEmployee::printEmployeeDetails()
     Emp::getEmpTypeToString(getEmployeeType()), \
     Emp::getEmpStatusToString(getEmployeeStatus()), \
     Emp::getGenderToString(getEmployeeGender()), \
-    getEmployeeDOB(), \
-    getDateOfJoining(), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
     Emp::getExternalAgenciesToString(getExternalAgency()));  
 
 }
@@ -35,12 +45,12 @@ Emp::EmpType XyzContractorEmployee::getType()
     return Emp::EmpType::CONTRACTOR;
  }
 
-void XyzContractorEmployee::setDateOfLeaving(std::string valParam)
+void XyzContractorEmployee::setDateOfLeaving(Emp::DateStruct valParam)
 {
     mDateOfLeaving = valParam;
 }
 
-std::string XyzContractorEmployee::getDateOfLeaving()
+Emp::DateStruct XyzContractorEmployee::getDateOfLeaving()
 {
     return mDateOfLeaving;
 }

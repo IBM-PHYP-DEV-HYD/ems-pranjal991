@@ -17,10 +17,16 @@
     std::cout<<" | "<<std::setw(10)<<"Gender"; \
     std::cout<<" | "<<std::setw(15)<<"Date of Birth"; \
     std::cout<<" | "<<std::setw(15)<<"Date of Joining"; \
+    std::cout<<" | "<<std::setw(15)<<"Date of Leaving"; \
+    std::cout<<" | "<<std::setw(15)<<"Leaves Awailed"; \
+    std::cout<<" | "<<std::setw(15)<<"Leaves Left"; \
+    std::cout<<" | "<<std::setw(15)<<"External Agency"; \
+    std::cout<<" | "<<std::setw(15)<<"Collage"; \
+    std::cout<<" | "<<std::setw(15)<<"Branch"; \
     std::cout<<" | "<<std::endl; \
 } \
 
-#define ENTRY(employeename,id,type,status,gender,dob,doj) \
+#define ENTRY(employeename,id,type,status,gender,dob,doj,dol,la,ll,ea,coll,br) \
    { \
     std::cout<<" | "<<std::setw(15)<<employeename; \
     std::cout<<" | "<<std::setw(10)<<id; \
@@ -29,6 +35,12 @@
     std::cout<<" | "<<std::setw(10)<<gender; \
     std::cout<<" | "<<std::setw(15)<<dob; \
     std::cout<<" | "<<std::setw(15)<<doj; \
+    std::cout<<" | "<<std::setw(15)<<dol; \
+    std::cout<<" | "<<std::setw(15)<<la; \
+    std::cout<<" | "<<std::setw(15)<<ll; \
+    std::cout<<" | "<<std::setw(15)<<ea; \
+    std::cout<<" | "<<std::setw(15)<<coll; \
+    std::cout<<" | "<<std::setw(15)<<br; \
     std::cout<<" | "<<std::endl;}
 
 #define COMMON_DETAILS(empname, id, type, status, gender, dob, doj) \
@@ -178,12 +190,7 @@ namespace Emp
         return arr[sRandomIndex];
     }    
 
-    static std::string getFourDigitNo(int valParam)
-    {
-        std::ostringstream oss;
-        oss << std::setfill('0') << std::setw(4) << valParam;
-        return oss.str();
-    }
+    
     template <typename T>
     static int getEnumToInt(T args)
     {
@@ -192,6 +199,9 @@ namespace Emp
         return sRet;
     }
 
+   
+
+    std::string getFourDigitNo(int valParam);
     std::string getEmpTypeToString(Emp::EmpType valParam);
     std::string getEmpStatusToString(Emp::EmpStatus valParam);
     std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam);
@@ -200,6 +210,7 @@ namespace Emp
     std::string getGenderToString(Emp::Gender valParam);
     std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam);
     std::string generateEmployeeId(Emp::EmpType typeParm, int idParm);
+    std::string generateDateToString(Emp::DateStruct valParm);
     
 }
 

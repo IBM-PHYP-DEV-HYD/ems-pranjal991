@@ -25,6 +25,13 @@ std::string Emp::generateEmployeeId(Emp::EmpType typeParm, int idParm)
 
   }
 
+std::string Emp::getFourDigitNo(int valParam)
+  {
+      std::ostringstream oss;
+      oss << std::setfill('0') << std::setw(4) << valParam;
+      return oss.str();
+  }
+
 std::string Emp::getEmpTypeToString(Emp::EmpType valParam)
 {
     std::string sRet;
@@ -158,25 +165,32 @@ std::string Emp::getGenderToString(Emp::Gender valParam)
 
 }
 
-std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam)
+// std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam)
+// {
+//     std::string sRet;
+//     switch (valParam)
+//     {
+//     case Emp::ExternalAgencies::AVENGERS:
+//         sRet = "AVENGERS";
+//         break;
+//     case Emp::ExternalAgencies::JUSTICELEAGUE:
+//         sRet = "JUSTICELEAGUE";
+//         break;
+//     case Emp::ExternalAgencies::XMEN:
+//         sRet = "XMEN";
+//         break;
+//     default:
+//         sRet = "Invalid";
+//         break;
+//     }
+//     return sRet;
+
+// }
+
+std::string Emp::generateDateToString(Emp::DateStruct valParm)
 {
-    std::string sRet;
-    switch (valParam)
-    {
-    case Emp::ExternalAgencies::AVENGERS:
-        sRet = "AVENGERS";
-        break;
-    case Emp::ExternalAgencies::JUSTICELEAGUE:
-        sRet = "JUSTICELEAGUE";
-        break;
-    case Emp::ExternalAgencies::XMEN:
-        sRet = "XMEN";
-        break;
-    default:
-        sRet = "Invalid";
-        break;
-    }
-    return sRet;
+    std::string sTemp;
+    return std::to_string(valParm.Day) + "/" + std::to_string(valParm.Month) + "/" + std::to_string(valParm.Year);
 
 }
 

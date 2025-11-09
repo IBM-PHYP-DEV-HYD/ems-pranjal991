@@ -21,10 +21,10 @@ class XyzEmployeeInterface
     virtual std::string getEmployeeName() = 0;
     virtual std::string getEmployeeID() = 0;
     virtual Emp::Gender getEmployeeGender() = 0;
-    virtual std::string getEmployeeDOB() = 0;
+    virtual Emp::DateStruct getEmployeeDOB() = 0;
     virtual Emp::EmpStatus getEmployeeStatus() = 0;
     virtual Emp::EmpType getEmployeeType() = 0;
-    virtual std::string getDateOfJoining() = 0;
+    virtual Emp::DateStruct getDateOfJoining() = 0;
     virtual void printDetails() = 0;
     virtual void printEmployeeDetails() = 0;
     virtual Emp::EmpType getType() = 0;

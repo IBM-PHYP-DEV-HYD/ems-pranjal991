@@ -12,8 +12,18 @@ int XyzInternEmployee::getId()
 
 void XyzInternEmployee::printDetails()
 {
-    ENTRY(getEmployeeName(),getEmployeeID(),Emp::getEmpTypeToString(getEmployeeType()),Emp::getEmpStatusToString(getEmployeeStatus()), \
-    Emp::getGenderToString(getEmployeeGender()),getEmployeeDOB(),getDateOfJoining());
+    ENTRY(getEmployeeName(),getEmployeeID(), \
+    Emp::getEmpTypeToString(getEmployeeType()), \
+    Emp::getEmpStatusToString(getEmployeeStatus()), \
+    Emp::getGenderToString(getEmployeeGender()), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
+    Emp::generateDateToString(getDateOfLeaving()), \
+    "NA", \
+    "NA", \
+    "NA", \
+    getCollegeName(), \
+    getBranchName());
 }
 
 void XyzInternEmployee::printEmployeeDetails()
@@ -24,8 +34,8 @@ void XyzInternEmployee::printEmployeeDetails()
     Emp::getEmpTypeToString(getEmployeeType()), \
     Emp::getEmpStatusToString(getEmployeeStatus()), \
     Emp::getGenderToString(getEmployeeGender()), \
-    getEmployeeDOB(), \
-    getDateOfJoining(), \
+    Emp::generateDateToString(getEmployeeDOB()), \
+    Emp::generateDateToString(getDateOfJoining()), \
     getCollegeName(), \
     getBranchName());
 
@@ -37,12 +47,12 @@ void XyzInternEmployee::printEmployeeDetails()
     return Emp::EmpType::INTERN;
  }
 
-void XyzInternEmployee::setDateOfLeaving(std::string valParm)
+void XyzInternEmployee::setDateOfLeaving(Emp::DateStruct valParm)
 {
     mDateOfLeaving = valParm;
 }
 
-std::string  XyzInternEmployee::getDateOfLeaving()
+Emp::DateStruct XyzInternEmployee::getDateOfLeaving()
 {
     return mDateOfLeaving;
 }

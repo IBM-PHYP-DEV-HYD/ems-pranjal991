@@ -8,7 +8,7 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
 {
     public:
     
-    XyzInternEmployee():mCollege(Emp::Colleges::ENDMARKER),mBranch(Emp::Branches::ENDMARKER),mDateOfLeaving("NULL"){mIid++;};
+    XyzInternEmployee():mCollege(Emp::Colleges::ENDMARKER),mBranch(Emp::Branches::ENDMARKER),mDateOfLeaving(){mIid++;};
 
     XyzInternEmployee(const XyzInternEmployee &object) = delete;
     XyzInternEmployee(const XyzInternEmployee &&object)= delete;
@@ -21,8 +21,8 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
     void printEmployeeDetails() override;
     Emp::EmpType getType() override;
 
-    void setDateOfLeaving(std::string valParam);
-    std::string getDateOfLeaving();
+    void setDateOfLeaving(Emp::DateStruct valParam);
+    Emp::DateStruct getDateOfLeaving();
     void setCollegeName(Emp::Colleges valParam);
     std::string getCollegeName();
     void setBranchName(Emp::Branches valParam);
@@ -35,7 +35,7 @@ class XyzInternEmployee:public XyzEmployeeInterfaceBase
 
     Emp::Colleges mCollege;
     Emp::Branches mBranch;
-    std::string mDateOfLeaving;
+    Emp::DateStruct mDateOfLeaving;
     static int mIid; // every object generated will be assigned a ID to be used for generating employeeid 
 
 

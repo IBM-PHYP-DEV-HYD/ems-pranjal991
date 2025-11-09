@@ -23,14 +23,13 @@ class XyzEmployeeInterfaceBase : public XyzEmployeeInterface
     std::string getEmployeeName() final;
     std::string getEmployeeID() final;
     Emp::Gender getEmployeeGender() final;
-    std::string getEmployeeDOB() final;
+    Emp::DateStruct getEmployeeDOB() final;
     Emp::EmpStatus getEmployeeStatus() final;
     Emp::EmpType getEmployeeType() final;
-    std::string getDateOfJoining() final;
+    Emp::DateStruct getDateOfJoining() final;
     void printDetails() override;
     void printEmployeeDetails() override;
     Emp::EmpType getType() override;
-
 
     EmployeeDatabase& getEmpDatabaseInstance()
     {
