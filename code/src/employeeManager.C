@@ -175,4 +175,11 @@ bool XyzEmployeeManager::removeEmployeInternal(Edll<XyzEmployeeInterface*>& queu
 
  }
 
+ void XyzEmployeeManager::clearDb()
+ {
+    mActiveEmployeeQueue.clear();
+    mInActiveEmployeeQueue.clear();
+    mResignedEmployeeQueue.clear();
+ }
+
 #endif

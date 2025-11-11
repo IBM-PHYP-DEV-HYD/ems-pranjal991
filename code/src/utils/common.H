@@ -120,7 +120,7 @@ T getInputValues()
 
 namespace Emp
 {
-    constexpr int Leaves  = 5;
+    constexpr int maxLeaves  = 22;
     enum class EmpType
     {
         FULLTIME,
@@ -249,6 +249,7 @@ namespace Menu
         INTERN_TO_FULLTIME,
         SEARCH_EMP_ID,
         SEARCH_EMP_NAME,
+        CLEAR_EMP_DB,
         EXIT = 255
 
     };

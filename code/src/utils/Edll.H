@@ -52,8 +52,7 @@ bool Edll<T>::removeFromIndex(int indexParm)
     int sCounter = 1;
     if (indexParm == 1)
     {  
-        Deque<T>::popFront();      
-        // this->popFront();
+        Deque<T>::popFront();
         return true;
     }
 

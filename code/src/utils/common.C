@@ -206,8 +206,6 @@ Menu::SubMenu1 Menu::SubMenu1Options()
     return static_cast<Menu::SubMenu1>(sChoice);
 }
 
-
-
 Menu::SubMenu2 Menu::SubMenu2Options()
 {
     std::cout << " \
@@ -237,7 +235,8 @@ Menu::SubMenu3 Menu::SubMenu3Options()
     | 1.  Add N number of leaves to all the Full-Time employees                      |\n \
     | 2.  Convert an Intern to Full-Time employee.                                   |\n \
     | 3.  Search an Employee by ID                                                   |\n \
-    | 4.  Search an Employee by Name (-1 for Back)                                   |\n \
+    | 4.  Search an Employee by Name                                                 |\n \
+    | 5.  Clear Database (-1 for Back)                                               |\n \
     ---------------------------------------------------------------------------------\n \
     Your Choice: "
               << std::endl;
@@ -246,17 +245,5 @@ Menu::SubMenu3 Menu::SubMenu3Options()
     return static_cast<Menu::SubMenu3>(sChoice);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif

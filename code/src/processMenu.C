@@ -189,7 +189,8 @@ void ProcessMenu::ProcessSubmenu3()
         {
             case Menu::SubMenu3::ADD_LEAVES_FULL_TIME_EMPLOYEES:
             {
-                int sVal = 1 + std::rand() % 22;
+                
+                int sVal = 1 + std::rand() % Emp::maxLeaves;
                 std::cout<<"Adding random leaves: "<<sVal<<std::endl;
                 if (!mManager->addLeavesToFulltimeEmployee(sVal))
                 {
@@ -218,6 +219,11 @@ void ProcessMenu::ProcessSubmenu3()
                 sName = Generic::getInputValues<std::string>();
                 mManager->printEmployee(sName,&XyzEmployeeInterface::getEmployeeName,&XyzEmployeeInterface::printDetails);
                 
+                break;
+            }
+            case Menu::SubMenu3::CLEAR_EMP_DB:
+            {
+                mManager->clearDb();
                 break;
             }
             case Menu::SubMenu3::EXIT:

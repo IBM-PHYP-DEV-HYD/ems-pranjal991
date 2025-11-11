@@ -11,7 +11,8 @@ class XyzEmployeeManager
     public:
 
     XyzEmployeeManager() = default;
-
+    ~XyzEmployeeManager() = default;
+    
     XyzEmployeeManager(const XyzEmployeeManager &object) = delete;
     XyzEmployeeManager(const XyzEmployeeManager &&object)= delete;
     XyzEmployeeManager& operator= (const XyzEmployeeManager& object) = delete;
@@ -23,6 +24,7 @@ class XyzEmployeeManager
     bool addLeavesToFulltimeEmployee(int valParam);
     bool removeEmployee(std::string idParam);
     bool convertInternToFulltime(std::string idParam);
+    void clearDb();
 
     /// @brief Wrapper function to search the employee and print its details in all 3 queues
     /// @tparam T 
