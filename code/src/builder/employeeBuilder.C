@@ -75,21 +75,24 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
 
  void EmployeeBuilderInterface::randomDateofJoiningGeneration(XyzEmployeeInterfaceBase* objParam)
   {
-    objParam->getEmpDatabaseInstance().mDateOfJoining.Month = 1 + std::rand() % 12;
-    objParam->getEmpDatabaseInstance().mDateOfJoining.Day = 1 + std::rand() % 30;
-    objParam->getEmpDatabaseInstance().mDateOfJoining.Year = 2000 + std::rand()% (2024-2000 +1);
+    objParam->getEmpDatabaseInstance().mDateOfJoining.Month = randomNumGeneration(1,12);
+    objParam->getEmpDatabaseInstance().mDateOfJoining.Day = randomNumGeneration(1,12);
+    int sDiff;
+    int sYear;
+    do
+    {
+      sYear = randomNumGeneration(2000,2024);
+      sDiff = sYear - objParam->getEmpDatabaseInstance().mDateOfBirth.Year;
+    } while(sDiff < 23 );
+    
+    objParam->getEmpDatabaseInstance().mDateOfJoining.Year = sYear;
   }
 
   void  EmployeeBuilderInterface::randomDateofBirthGeneration(XyzEmployeeInterfaceBase* objParam)
   {
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> dist6(1,12); // distribution in range [1, 6]
-
-    // std::cout << dist6(rng) << std::endl;
-    objParam->getEmpDatabaseInstance().mDateOfBirth.Month = dist6(rng);
-    objParam->getEmpDatabaseInstance().mDateOfBirth.Day  = 1 + std::rand() % 30;
-    objParam->getEmpDatabaseInstance().mDateOfBirth.Year  = 1990 + std::rand() % (2000 - 1990 + 1);    
+    objParam->getEmpDatabaseInstance().mDateOfBirth.Month = randomNumGeneration(1,12);
+    objParam->getEmpDatabaseInstance().mDateOfBirth.Day  = randomNumGeneration(1,30);
+    objParam->getEmpDatabaseInstance().mDateOfBirth.Year  = randomNumGeneration(1990,2000);    
   }
 
   Emp::DateStruct EmployeeBuilderInterface::generateDateofLeavingContractor(Emp::DateStruct valParam)
@@ -120,5 +123,12 @@ XyzEmployeeInterfaceBase* EmployeeBuilderInterface::createEmployee(Emp::EmpType 
 
   }
 
+  int EmployeeBuilderInterface::randomNumGeneration(int lowerLimitParam,int upperLimitParam)
+  {
+    std::random_device sDev;
+    std::mt19937 rng(sDev());
+    std::uniform_int_distribution<std::mt19937::result_type> generate(lowerLimitParam,upperLimitParam);
+    return generate(rng);
+  }
 
 #endif

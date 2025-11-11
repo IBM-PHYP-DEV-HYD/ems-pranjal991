@@ -6,15 +6,8 @@
 
 // class forwarding
 class EmployeeBuilderInterface;
-class XyzEmployeeInterfaceBase;
+class XyzEmployeeInterfaceBase; // to access private memebers of EmployeeDatabase class
 class XyzFulltimeEmployee;
-
-// struct DateStruct
-//     {
-//         int Day:8;
-//         int  Month:8;
-//         uint16_t Year;
-//     };
 
 class EmployeeDatabase
 {

@@ -165,28 +165,6 @@ std::string Emp::getGenderToString(Emp::Gender valParam)
 
 }
 
-// std::string getExternalAgenciesToString(Emp::ExternalAgencies valParam)
-// {
-//     std::string sRet;
-//     switch (valParam)
-//     {
-//     case Emp::ExternalAgencies::AVENGERS:
-//         sRet = "AVENGERS";
-//         break;
-//     case Emp::ExternalAgencies::JUSTICELEAGUE:
-//         sRet = "JUSTICELEAGUE";
-//         break;
-//     case Emp::ExternalAgencies::XMEN:
-//         sRet = "XMEN";
-//         break;
-//     default:
-//         sRet = "Invalid";
-//         break;
-//     }
-//     return sRet;
-
-// }
-
 std::string Emp::generateDateToString(Emp::DateStruct valParm)
 {
     std::string sTemp;
@@ -203,7 +181,7 @@ Menu::MainMenu Menu::MainMenuOptions()
     | 1.  Add an Employee                                                           |\n \
     | 2.  Remove an Employee                                                        |\n \
     | 3.  Employee Details                                                          |\n \
-    | 4.  Others                                                                    |\n \
+    | 4.  Others (-1 for Back)                                                      |\n \
     ---------------------------------------------------------------------------------\n \
     Your Choice: "
               << std::endl;
@@ -219,7 +197,7 @@ Menu::SubMenu1 Menu::SubMenu1Options()
     |                                    Add an Employee                            |\n \
     ---------------------------------------------------------------------------------\n \
     | 1.  Add an Employee st Random                                                 |\n \
-    | 2.  Add an Employee (F/C/I)                                                   |\n \
+    | 2.  Add an Employee (F/C/I) (-1 for Back)                                     |\n \
     ---------------------------------------------------------------------------------\n \
     Your Choice: "
               << std::endl;
@@ -240,7 +218,7 @@ Menu::SubMenu2 Menu::SubMenu2Options()
     | 2.  Employee Summary (F/C/I)                                                   |\n \
     | 3.  Employee Summary (M/F)                                                     |\n \
     | 4.  Employee Summary (A/I/R)                                                   |\n \
-    | 5.  Display Employee Details                                                   |\n \
+    | 5.  Display Employee Details (-1 for Back)                                     |\n \
     ---------------------------------------------------------------------------------\n \
     Your Choice: "
               << std::endl;
@@ -259,7 +237,7 @@ Menu::SubMenu3 Menu::SubMenu3Options()
     | 1.  Add N number of leaves to all the Full-Time employees                      |\n \
     | 2.  Convert an Intern to Full-Time employee.                                   |\n \
     | 3.  Search an Employee by ID                                                   |\n \
-    | 4.  Search an Employee by Name                                                 |\n \
+    | 4.  Search an Employee by Name (-1 for Back)                                   |\n \
     ---------------------------------------------------------------------------------\n \
     Your Choice: "
               << std::endl;

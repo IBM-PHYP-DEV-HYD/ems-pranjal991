@@ -110,7 +110,7 @@ bool XyzEmployeeManager::removeEmployee(std::string idParam)
 
         if(!ret)
         {
-            removeEmployeInternal(mResignedEmployeeQueue,idParam);
+            ret = removeEmployeInternal(mResignedEmployeeQueue,idParam);
         }
     }
 
@@ -127,9 +127,12 @@ bool XyzEmployeeManager::removeEmployeInternal(Edll<XyzEmployeeInterface*>& queu
     bool ret = false;
     int sIndex = 0;
     sPtr = searchEmployee(queueParam,valParam,&XyzEmployeeInterface::getEmployeeID,&sIndex);
-    // add them to resigned
-    sPtr->setEmployeeStatus(Emp::EmpStatus::RESIGNED);
-    mResignedEmployeeQueue.pushBack(sPtr);
+    if (sPtr!= nullptr && sPtr->getEmployeeStatus() != Emp::EmpStatus::RESIGNED)
+    {
+        // add them to resigned
+        sPtr->setEmployeeStatus(Emp::EmpStatus::RESIGNED);
+        mResignedEmployeeQueue.pushBack(sPtr);
+    }
     if(sPtr!= nullptr)
     {
         queueParam.removeFromIndex(sIndex);

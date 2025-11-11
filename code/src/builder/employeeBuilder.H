@@ -38,7 +38,8 @@ class EmployeeBuilderInterface:public XyzEmployeeInterfaceBase
     Emp::DateStruct generateDateofLeavingContractor(Emp::DateStruct valParam);
     Emp::DateStruct generateDateofLeavingIntern(Emp::DateStruct valParam);
 
-
+    private:
+    int randomNumGeneration(int lowerLimitParam,int upperLimitParam);
   
 
     
