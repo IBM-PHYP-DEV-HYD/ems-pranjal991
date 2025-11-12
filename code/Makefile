@@ -12,12 +12,12 @@
 TARGET  = ems
 
 CC      = g++
-CCFLAGS = -Wall -std=c++1z
+CCFLAGS = -Wall -std=c++1z -Isrc
 SRCDIR  = ./src
 OBJDIR  = ./obj
 BINDIR  = ./bin
 
-FILES   := $(wildcard $(SRCDIR)/*.C)
+FILES   := $(wildcard $(SRCDIR)/*.C) $(wildcard $(SRCDIR)/**/*.C)
 OBJECTS := $(FILES:$(SRCDIR)/%.C=$(OBJDIR)/%.o)
 
 $(BINDIR)/$(TARGET): $(OBJECTS)
@@ -26,6 +26,7 @@ $(BINDIR)/$(TARGET): $(OBJECTS)
 	@echo "To start the program run --> "$(BINDIR)"/"$(TARGET)
 
 $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.C
+	@mkdir -p $(dir $@)
 	$(CC) $(CCFLAGS) -c $< -o $@
 	@echo "Compiled "$<" successfully."
 
