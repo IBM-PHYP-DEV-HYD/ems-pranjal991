@@ -20,7 +20,6 @@ class EmployeeDatabase
     Emp::Gender mGender;
     Emp::DateStruct mDateOfBirth;
     Emp::DateStruct mDateOfJoining;
-    Emp::DateStruct obj;
 
     public:
     EmployeeDatabase():
